@@ -37,17 +37,14 @@
   curl_close($ch);
 
   // isolate the cookie
-
   preg_match('/^Set-Cookie:\s*([^;]*)/mi', $result, $m);
   $cookie = $m[1];
 
   // get converations
-
   $ch = curl_init();
 
-  $time = time() - (8 * 3600);
-
-  $url = 'https://us.libraryh3lp.com/2011-12-03/conversations/' . date('Y/m/d', $time) . '?format=json';
+  // you may want to watch your time zone here
+  $url = 'https://us.libraryh3lp.com/2011-12-03/conversations/' . date('Y/m/d') . '?format=json'; 
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_COOKIE, $cookie);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
