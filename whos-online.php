@@ -24,7 +24,7 @@
   }
   rtrim($fields_string, '&');
 
-// authenticate
+  // authenticate
 
   $ch = curl_init();
 
